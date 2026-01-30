@@ -5,6 +5,11 @@ public class testeUberLand {
 
 	public static void main(String[] args) {
 
+		new TelaCliente();		// Exibe tela do Cadastro do Cliente
+		new TelaMotorista();	// Exibe tela do Cadastro do Motorista
+		new TelaCorrida();		// Exibe tela da Cadastro da Corrida
+		new TelaVeiculos();		// Exibe tela de Cadastro do Veículo
+
 		// 1. Criar Cliente
 		Cliente cliente = new Cliente(
 				"Ana Paula",
