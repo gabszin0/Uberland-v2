@@ -5,11 +5,14 @@ public class testeUberLand {
 
 	public static void main(String[] args) {
 
-		new TelaCliente();		// Exibe tela do Cadastro do Cliente
-		new TelaMotorista();	// Exibe tela do Cadastro do Motorista
-		new TelaCorrida();		// Exibe tela da Cadastro da Corrida
-		new TelaVeiculos();		// Exibe tela de Cadastro do Veículo
-
+		TelaCliente cl = new TelaCliente();
+		
+		TelaMotorista m1 = new TelaMotorista();
+		
+		TelaVeiculos v1 = new TelaVeiculos();
+		
+		TelaCorrida cor1 = new TelaCorrida();
+		
 		// 1. Criar Cliente
 		Cliente cliente = new Cliente(
 				"Ana Paula",
@@ -130,6 +133,12 @@ public class testeUberLand {
 		// 11. Resultados finais
 		System.out.println("\n===== RESULTADOS =====");
 
+		motorista.calculaAvalicao(9);
+		cliente.calculaAvalicao(10);
+
+		System.out.println("Avaliação final do motorista: " + motorista.getAvaliacao());
+		System.out.println("Avaliação final do cliente: " + cliente.getAvaliacao());
+
 		corrida.exibirDadosCorrida();
 
 		System.out.println("Status da corrida: " + corrida.getStatusCorridaDescricao());
@@ -151,6 +160,44 @@ public class testeUberLand {
 			System.out.println("Cliente ainda não é VIP");
 		}
 
+		// 12. Testar corrida cancelada antes de iniciar
+		System.out.println("\n=== TESTE CORRIDA CANCELADA ===");
+
+		Corrida corridaCancelada = new Corrida(
+		        cliente,
+		        uberX,
+		        "Casa",
+		        "Trabalho",
+		        LocalDateTime.now(),
+		        cliente.getPagamento()
+		);
+
+		corridaCancelada.cancelarCorrida(Corrida.CANCELADA_POR_CLIENTE);
+
+		System.out.println("Status da corrida: " + corridaCancelada.getStatusCorridaDescricao());
+		System.out.println("Cancelada por cliente? " + corridaCancelada.isCanceladaPorCliente());
+
+		// 13. Testar corrida com veículo deletado
+		System.out.println("\n=== TESTE CORRIDA COM VEÍCULO DELETADO ===");
+
+		System.out.println("Veículo deletado? " + uberBlack.isDeletado());
+		System.out.println("Veículo ativo? " + uberBlack.isAtivo());
+		
+		Corrida corridaComCarroDeletado = new Corrida(
+		        cliente,
+		        uberBlack,
+		        "Centro",
+		        "Aeroporto",
+		        LocalDateTime.now(),
+		        cliente.getPagamento()
+		);
+
+		corridaComCarroDeletado.iniciarCorrida("11:00");
+
+		System.out.println("Status da corrida: " + corridaComCarroDeletado.getStatusCorridaDescricao());
+		System.out.println("Status do veículo: " + uberBlack.getStatusDescricao());
+
+		
 		System.out.println("\n===== FIM DO TESTE =====");
 	}
 }
