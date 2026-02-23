@@ -139,7 +139,7 @@ public abstract class  Veiculos {
 	
 	  // Método base para exibir dados:
     public void exibirDadosV(){
-        System.out.println("Placa: " + placa);
+        System.out.println("\nPlaca: " + placa);
         System.out.println("Chassi: " + chassi);
         System.out.println("Cor: " + cor);
         System.out.println("Capacidade: " + capacidade);

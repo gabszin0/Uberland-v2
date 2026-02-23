@@ -5,13 +5,13 @@ public class testeUberLand {
 
 	public static void main(String[] args) {
 
-		TelaCliente cl = new TelaCliente();
+		//TelaCliente cl = new TelaCliente();
 		
-		TelaMotorista m1 = new TelaMotorista();
+		//TelaMotorista m1 = new TelaMotorista();
 		
-		TelaVeiculos v1 = new TelaVeiculos();
+		//TelaVeiculos v1 = new TelaVeiculos();
 		
-		TelaCorrida cor1 = new TelaCorrida();
+		//TelaCorrida cor1 = new TelaCorrida();
 		
 		// 1. Criar Cliente
 		Cliente cliente = new Cliente(
@@ -22,6 +22,7 @@ public class testeUberLand {
 				"ana@email.com",
 				'F'
 		);
+		DadosCliente.cadastrarCliente(cliente);
 
 		// 2. Criar Motorista
 		Motorista motorista = new Motorista(
@@ -32,6 +33,7 @@ public class testeUberLand {
 				"12345678901",
 				"Marcos"
 		);
+		DadosMotorista.cadastrarMotorista(motorista);
 
 		// 3. Criar Veículos
 		Veiculos uberX = new UberX(
@@ -45,7 +47,8 @@ public class testeUberLand {
 				true,
 				false
 		);
-
+		DadosVeiculo.cadastrarVeiculos(uberX);
+		
 		Veiculos uberComfort = new UberComfort(
 				"DEF5678",
 				"22222222222222222",
@@ -58,6 +61,7 @@ public class testeUberLand {
 				true,
 				true
 		);
+		DadosVeiculo.cadastrarVeiculos(uberComfort);
 
 		Veiculos uberBlack = new UberBlack(
 				"GHI9012",
@@ -71,6 +75,7 @@ public class testeUberLand {
 				true,
 				3
 		);
+		DadosVeiculo.cadastrarVeiculos(uberBlack);
 
 		// 4. Vincular veículos ao motorista
 		motorista.adicionarVeiculo(uberX);
@@ -98,28 +103,34 @@ public class testeUberLand {
 
 		// 7. Exibir dados do motorista e veículos
 		System.out.println("\n=== DADOS DO MOTORISTA ===");
-		motorista.exibirDadosMOTORISTA();
-
+		DadosMotorista.listarMotorista();
+		
 		System.out.println("\n=== VEÍCULOS DO MOTORISTA ===");
-		uberX.exibirDadosV();
-		System.out.println();
-
-		uberComfort.exibirDadosV();
-		System.out.println();
-
-		uberBlack.exibirDadosV(); // mesmo deletado, exibindo dados
-		System.out.println();
-
+		DadosVeiculo.listarVeiculos();
+		
 		// 8. Criar Corrida (usar UberX)
-		Corrida corrida = new Corrida(
-				cliente,
-				uberX,
+		Cliente clientebuscado = DadosCliente.buscarCliente("12345678909");
+		if(clientebuscado == null) {
+			System.out.println("\nCliente nao encontrado");
+			return;
+		}
+		
+		Veiculos veiculobuscado = DadosVeiculo.buscarVeiculo("ABC1234");
+		if(veiculobuscado == null) {
+			System.out.println("\nVeiculo nao encontrado");
+			return;
+		}
+		
+		Corrida	corrida = new Corrida(
+				clientebuscado,
+				veiculobuscado,
 				"Shopping Center",
 				"Universidade",
 				LocalDateTime.now(),
-				cliente.getPagamento()
-		);
-
+				clientebuscado.getPagamento()
+			);
+		DadosCorrida.cadastrarCorrida(corrida);
+		
 		// 9. Iniciar Corrida
 		corrida.iniciarCorrida("10:30");
 
@@ -154,7 +165,8 @@ public class testeUberLand {
 		System.out.println("\nCliente - Corridas: " + cliente.getQtdecorridas());
 		System.out.println("Motorista - Corridas: " + motorista.getQtdecorridas());
 
-		if (cliente instanceof ClienteVip) {
+		Cliente clienteatual = DadosCliente.buscarCliente("12345678909");
+		if (clienteatual instanceof ClienteVip) {
 			System.out.println("Cliente é VIP");
 		} else {
 			System.out.println("Cliente ainda não é VIP");
@@ -171,6 +183,7 @@ public class testeUberLand {
 		        LocalDateTime.now(),
 		        cliente.getPagamento()
 		);
+		DadosCorrida.cadastrarCorrida(corridaCancelada);
 
 		corridaCancelada.cancelarCorrida(Corrida.CANCELADA_POR_CLIENTE);
 
@@ -191,12 +204,16 @@ public class testeUberLand {
 		        LocalDateTime.now(),
 		        cliente.getPagamento()
 		);
+		DadosCorrida.cadastrarCorrida(corridaComCarroDeletado);
 
 		corridaComCarroDeletado.iniciarCorrida("11:00");
 
 		System.out.println("Status da corrida: " + corridaComCarroDeletado.getStatusCorridaDescricao());
 		System.out.println("Status do veículo: " + uberBlack.getStatusDescricao());
 
+		//14 Teste do DAO - Dados da Corrida
+		System.out.println("\n=== LISTANDO TODAS AS CORRIDAS ===");
+		DadosCorrida.listarCorrida();
 		
 		System.out.println("\n===== FIM DO TESTE =====");
 	}

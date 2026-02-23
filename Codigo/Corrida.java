@@ -167,7 +167,13 @@ public class Corrida{
 		RegrasUberLand.calcularDivisaoCorrida(this);
 		veiculo.getMotorista().incrementaQtdecorridas(); // incrementar corrida ao motorista
 		cliente.incrementaQtdecorridas();              // incrementar corrida a cliente
-		cliente = RegrasUberLand.verificarClientevip(cliente); // verificar se tornou vip
+		
+		Cliente clienteatualizado = RegrasUberLand.verificarClientevip(cliente); // verificar se tornou vip
+		if (clienteatualizado != cliente ) {  // se criou um novo objeto, substitui no array
+			DadosCliente.substituirCliente(cliente, clienteatualizado);
+			cliente = clienteatualizado;
+		}
+		
 	}
 	
 	private int converterHoraParaMinutos(String horario) {  //converter hora em minutos
@@ -230,7 +236,7 @@ public class Corrida{
 	}
 	
 	public void exibirDadosCorrida(){
-		System.out.println("----- Dados da Corrida -----");
+		System.out.println("\n----- Dados da Corrida -----");
 		System.out.println("Origem: " + getOrigem());
 		System.out.println("Destino: " + getDestino());
 		System.out.println("Data e Hora da Solicitação: " + getDataHoraSolicitacao());
