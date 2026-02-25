@@ -159,6 +159,13 @@
         // Cria o objeto (ex: Pessoa ou Cliente)
         Pessoa novoCliente = new Cliente(nome, cpf, nascimento, celular, email, pagamento.charAt(0));
         
+
+      
+        
+
+
+
+        
         
         // Salvando na persistencia
         GerenciadorDados bancoDados = new GerenciadorDados(); 
@@ -173,10 +180,10 @@
     }//GEN-LAST:event_FinalizarButtonActionPerformed
 
     private void FormadepagamentoComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormadepagamentoComboActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_FormadepagamentoComboActionPerformed
 
-    
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
