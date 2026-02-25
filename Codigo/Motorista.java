@@ -1,18 +1,19 @@
-	import java.util.*;
-	
-	public class Motorista extends Pessoa {
+
+import java.util.*;
+
+public class Motorista extends Pessoa implements java.io.Serializable {
 	private String end;
 	private String cnh;
 	private String nomesocial;
 	private boolean ativo;
 	private List<Veiculos> veiculos;
 	
-	public Motorista(String nome, String cpf, String datanasc, String end, String cnh, String nomesocial) {
+	public Motorista(String nome, String cpf, String datanasc, String end, String cnh, String nomesocial, boolean ativo) {
 		super (nome, cpf, datanasc);
 		setEnd(end);
 		setCnh (cnh);
 		setNomesocial(nomesocial);
-		this.ativo = true;
+		this.ativo = ativo;
 		veiculos = new ArrayList<>();
 	}
 	

@@ -2,12 +2,12 @@
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaMotorista2.class.getName());
     
-    
     public TelaMotorista2() {
         initComponents();
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -17,14 +17,14 @@
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jFormattedTextField6 = new javax.swing.JFormattedTextField();
-        jFormattedTextField7 = new javax.swing.JFormattedTextField();
-        jFormattedTextField8 = new javax.swing.JFormattedTextField();
-        jFormattedTextField9 = new javax.swing.JFormattedTextField();
-        jFormattedTextField10 = new javax.swing.JFormattedTextField();
-        jFormattedTextField11 = new javax.swing.JFormattedTextField();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        DataNasciTextField = new javax.swing.JFormattedTextField();
+        CPFTextField = new javax.swing.JFormattedTextField();
+        EnderecoTextField = new javax.swing.JFormattedTextField();
+        NomeTextField = new javax.swing.JFormattedTextField();
+        CNHTextField = new javax.swing.JFormattedTextField();
+        NomeSocialTextField = new javax.swing.JFormattedTextField();
+        MotoristaAtivoCheckbox = new javax.swing.JCheckBox();
+        CadastrarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,24 +54,24 @@
         jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel7.setText("Nome Social:");
 
-        jFormattedTextField6.setText("Insira aqui sua resposta...");
+        DataNasciTextField.setText("Insira aqui sua resposta...");
 
-        jFormattedTextField7.setText("Insira aqui sua resposta...");
+        CPFTextField.setText("Insira aqui sua resposta...");
 
-        jFormattedTextField8.setText("Insira aqui sua resposta...");
+        EnderecoTextField.setText("Insira aqui sua resposta...");
 
-        jFormattedTextField9.setText("Insira aqui sua resposta...");
+        NomeTextField.setText("Insira aqui sua resposta...");
 
-        jFormattedTextField10.setText("Insira aqui sua resposta...");
+        CNHTextField.setText("Insira aqui sua resposta...");
 
-        jFormattedTextField11.setText("Insira aqui sua resposta...");
+        NomeSocialTextField.setText("Insira aqui sua resposta...");
 
-        jCheckBox2.setText("Motorista Ativo?");
-        jCheckBox2.addActionListener(this::jCheckBox2ActionPerformed);
+        MotoristaAtivoCheckbox.setText("Motorista Ativo?");
+        MotoristaAtivoCheckbox.addActionListener(this::MotoristaAtivoCheckboxActionPerformed);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("Cadastrar!");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        CadastrarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CadastrarButton.setText("Cadastrar!");
+        CadastrarButton.addActionListener(this::CadastrarButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,21 +100,21 @@
                                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFormattedTextField6)
-                            .addComponent(jFormattedTextField7)
-                            .addComponent(jFormattedTextField8)
-                            .addComponent(jFormattedTextField9)
-                            .addComponent(jFormattedTextField10)
-                            .addComponent(jFormattedTextField11)))
+                            .addComponent(DataNasciTextField)
+                            .addComponent(CPFTextField)
+                            .addComponent(EnderecoTextField)
+                            .addComponent(NomeTextField)
+                            .addComponent(CNHTextField)
+                            .addComponent(NomeSocialTextField)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(135, 135, 135)
-                        .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(MotoristaAtivoCheckbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(53, 53, 53)))
                 .addGap(80, 80, 80))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CadastrarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -126,56 +126,77 @@
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jFormattedTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jFormattedTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CPFTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jFormattedTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DataNasciTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jFormattedTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EnderecoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jFormattedTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CNHTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jFormattedTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NomeSocialTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(jCheckBox2)
+                .addComponent(MotoristaAtivoCheckbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void MotoristaAtivoCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MotoristaAtivoCheckboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_MotoristaAtivoCheckboxActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void CadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarButtonActionPerformed
+        // 1. Coleta os dados da tela (baseado nos seus nomes de variáveis)
+        String nome = NomeTextField.getText();
+        String nomeSocial = NomeSocialTextField.getText();
+        String cpf = CPFTextField.getText();
+        String dataNascimento = DataNasciTextField.getText();
+        String endereco = EnderecoTextField.getText();
+        String cnh = CNHTextField.getText();
+        boolean ativo = MotoristaAtivoCheckbox.isSelected();
 
+        // 2. Cria o objeto Motorista
+        // Lembre-se: a classe Motorista deve herdar de Pessoa e ser Serializable!
+        Motorista novoMotorista = new Motorista(nome, nomeSocial, cpf, dataNascimento, endereco, cnh, ativo);
+
+        // 3. Salva usando o seu Gerenciador de Dados
+        GerenciadorDados bancoDados = new GerenciadorDados();
+        bancoDados.cadastrar(novoMotorista);
+
+        // 4. Feedback e navegação
+        javax.swing.JOptionPane.showMessageDialog(this, "Motorista cadastrado com sucesso!");
+    
+        // Volta para o menu principal
+        new TelaMenu().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CadastrarButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JFormattedTextField jFormattedTextField10;
-    private javax.swing.JFormattedTextField jFormattedTextField11;
-    private javax.swing.JFormattedTextField jFormattedTextField6;
-    private javax.swing.JFormattedTextField jFormattedTextField7;
-    private javax.swing.JFormattedTextField jFormattedTextField8;
-    private javax.swing.JFormattedTextField jFormattedTextField9;
+    private javax.swing.JFormattedTextField CNHTextField;
+    private javax.swing.JFormattedTextField CPFTextField;
+    private javax.swing.JButton CadastrarButton;
+    private javax.swing.JFormattedTextField DataNasciTextField;
+    private javax.swing.JFormattedTextField EnderecoTextField;
+    private javax.swing.JCheckBox MotoristaAtivoCheckbox;
+    private javax.swing.JFormattedTextField NomeSocialTextField;
+    private javax.swing.JFormattedTextField NomeTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
