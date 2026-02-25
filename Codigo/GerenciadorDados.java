@@ -23,7 +23,26 @@ public class GerenciadorDados {
             System.err.println("Erro ao salvar dados: " + e.getMessage());
         }
     }
+    public Pessoa buscarPorCpf(String cpf) {
+        for (Pessoa p : listaPessoas) {
+            // Verifica se o CPF não é nulo e se é igual ao pesquisado
+            if (p.getCpf() != null && p.getCpf().equals(cpf)) {
+                return p; // Achou! Devolve o cliente.
+            }
+        }
+        return null; // Não achou ninguém
+    }
 
+    public boolean removerPorCpf(String cpf) {
+        Pessoa clienteParaRemover = buscarPorCpf(cpf);
+        
+        if (clienteParaRemover != null) {
+            listaPessoas.remove(clienteParaRemover); // Tira da lista
+            salvarNoArquivo(); // Salva o arquivo .dat atualizado (sem o cliente)
+            return true; // Sucesso na remoção
+        }
+        return false; // Falhou 
+    }
     @SuppressWarnings("unchecked")
     private List<Pessoa> carregarDoArquivo() {
         File arquivo = new File(CAMINHO_ARQUIVO);

@@ -56,7 +56,7 @@
 
         DataNasciTextField.setText("Insira aqui sua resposta...");
 
-        CPFTextField.setText("Insira aqui sua resposta...");
+        CPFTextField.setText("");
 
         CelularTextField.setText("Insira aqui sua resposta...");
 
@@ -150,18 +150,22 @@
     private void FinalizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarButtonActionPerformed
         // Coleta os dados da tela
         String nome = NomeTextField.getText();
-        String cpf = CPFTextField.getText();
+        String cpf = CPFTextField.getText().replaceAll("[^0-9]", "");
         String nascimento = DataNasciTextField.getText();
         String celular = CelularTextField.getText();
         String email = EmailTextField.getText();
         String pagamento = FormadepagamentoCombo.getSelectedItem().toString();
 
-        // Cria o objeto (ex: Pessoa ou Cliente)
+        // Cria o objeto 
         Pessoa novoCliente = new Cliente(nome, cpf, nascimento, celular, email, pagamento.charAt(0));
         
 
-      
+      if(novoCliente.getCpf() == null) {
+        javax.swing.JOptionPane.showMessageDialog(this, "CPF Inválido! ou não preenchido. Por favor, insira um CPF válido.");
+        return;
+      }
         
+      
 
 
 

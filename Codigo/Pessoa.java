@@ -33,14 +33,14 @@
 		return cpf;
 	}
 	public void setCpf(String cpf) {
-		if (validaCpf(cpf))
+	 	if (validaCpf(cpf))
 			this.cpf = cpf;
 	}
 	public String getDataNasc() {
 		return datanasc;
 	}
 	public void setDataNasc(String datanasc) {
-		if (validaDataNasc(datanasc))
+		 if (validaDataNasc(datanasc))
 			this.datanasc = datanasc;
 	}
 	

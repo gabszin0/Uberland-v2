@@ -10,12 +10,12 @@ public class TelaRemocao2 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jFormattedTextField9 = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel(); // Label para o título "Busca e Remoção de Cliente"
+        jLabel2 = new javax.swing.JLabel(); // Label para "Digite o CPF:"
+        inputTextCPF = new javax.swing.JFormattedTextField(); // Campo para CPF
+        jButton1 = new javax.swing.JButton(); // Botão "Finalizar"
+        btnBuscar = new javax.swing.JButton(); // Botão "Buscar"
+        checkboxRemove = new javax.swing.JCheckBox(); // Checkbox para confirmar remoção
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -29,7 +29,7 @@ public class TelaRemocao2 extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel2.setText("Digite o CPF:");
 
-        jFormattedTextField9.setText("Insira aqui sua resposta...");
+        inputTextCPF.setText(""); 
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Finalizar!");
@@ -39,7 +39,7 @@ public class TelaRemocao2 extends javax.swing.JFrame {
         btnBuscar.setText("Buscar!");
         btnBuscar.addActionListener(this::buscarCpfActionPerformed);
 
-        jCheckBox1.setText("Remover Cliente");
+    
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,10 +58,10 @@ public class TelaRemocao2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jCheckBox1)
+                        .addComponent(checkboxRemove)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jFormattedTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                        .addComponent(inputTextCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBuscar)
                         .addGap(31, 31, 31))))
@@ -74,10 +74,10 @@ public class TelaRemocao2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jFormattedTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputTextCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox1)
+                .addComponent(checkboxRemove)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
@@ -90,19 +90,33 @@ public class TelaRemocao2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void buscarCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     String cpf = jFormattedTextField9.getText();
+
+    
+
+    private void buscarCpfActionPerformed(java.awt.event.ActionEvent evt) {
+
+     String cpf = inputTextCPF.getText().replaceAll("[^0-9]", "");
+
      if (cpf != null && !cpf.trim().isEmpty()) {
-         Cliente clienteEncontrado = DadosCliente.buscarCliente(cpf);
+        
+        GerenciadorDados gerenciadorDados = new GerenciadorDados();
+         Pessoa clienteEncontrado = gerenciadorDados.buscarPorCpf(cpf);
+
+
             if (clienteEncontrado != null) {
-                // Exibir os dados do cliente encontrado
-                // Por exemplo, você pode usar um JOptionPane para mostrar as informações
-                javax.swing.JOptionPane.showMessageDialog(this, "Nome: " + clienteEncontrado.getNome() + "\n" +
-                                    "CPF: " + clienteEncontrado.getCpf() + "\n" );
+          private javax.swing.JCheckBox checkboxRemove; // Checkbox para confirmar remoção
+          checkboxRemove.setText("Confirmar remoção do cliente: " + clienteEncontrado.getNome());
+
+
+            Object[] msg = {
+    "Nome: " + clienteEncontrado.getNome(),
+    "CPF: " + clienteEncontrado.getCpf(),
+    checkboxRemove
+};
               
                 
-                // Habilitar a opção de remoção
-                jCheckBox1.setEnabled(true);
+              
+               
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "Cliente não encontrado com o CPF fornecido.", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
             }
@@ -116,8 +130,8 @@ public class TelaRemocao2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JFormattedTextField jFormattedTextField9;
+    private javax.swing.JCheckBox checkboxRemove;
+    private javax.swing.JFormattedTextField inputTextCPF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
