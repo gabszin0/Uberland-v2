@@ -4,7 +4,7 @@ import java.util.List;
 
 public class GerenciadorDados {
     private List<Pessoa> listaPessoas;
-    private final String CAMINHO_ARQUIVO = "C:\\Users\\ghost\\Documents\\dados_clientes.dat";
+    private final String CAMINHO_ARQUIVO = "dados_clientes.dat";;
 
     public GerenciadorDados() {
         this.listaPessoas = carregarDoArquivo();
