@@ -1,5 +1,4 @@
-
-public class RegrasUberLand {
+	public class RegrasUberLand {
 
 	private static final int corridasclientevip = 10;
 	private static final double porcentagemUberLand = 0.6;

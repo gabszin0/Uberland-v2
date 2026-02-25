@@ -1,7 +1,6 @@
-
-import java.util.*;
-
-public class Motorista extends Pessoa {
+	import java.util.*;
+	
+	public class Motorista extends Pessoa {
 	private String end;
 	private String cnh;
 	private String nomesocial;

@@ -1,5 +1,5 @@
 
-public class Cliente extends Pessoa{
+public class Cliente extends Pessoa implements java.io.Serializable {
 	private String cel;
 	private String email;
 	private char sexo;
