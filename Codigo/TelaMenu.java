@@ -49,7 +49,7 @@ public class TelaMenu extends javax.swing.JFrame {
         VeiculoButton.addActionListener(this::VeiculoButtonActionPerformed);
 
         BuscaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BuscaButton.setText("Buscar Cliente");
+        BuscaButton.setText("Remover Cliente");
         BuscaButton.addActionListener(this::BuscaButtonActionPerformed);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoUberland.png"))); // NOI18N
