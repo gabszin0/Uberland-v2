@@ -1,4 +1,3 @@
-import javax.swing.JLabel;
 
 public class TelaRemocao2 extends javax.swing.JFrame {
     
@@ -101,7 +100,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         TelaMenu telaMenu = new TelaMenu();
         telaMenu.setVisible(true);
         this.dispose(); // Fecha a janela atual
-    }/
+    }
 
     
 

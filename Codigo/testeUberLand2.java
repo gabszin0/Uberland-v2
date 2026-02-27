@@ -6,6 +6,11 @@ public class testeUberLand2 {
 
 	public static void main(String[] args) throws IOException {
 
+		// 	Instanciando as telas
+            TelaMenu telaMenu = new TelaMenu();
+                    
+            telaMenu.setVisible(true);
+
 		// 1. Criar Cliente
 		Cliente cliente = new Cliente(
 				"Ana Paula",
