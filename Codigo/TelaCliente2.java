@@ -161,9 +161,11 @@
         
 
       if(novoCliente.getCpf() == null) {
-        javax.swing.JOptionPane.showMessageDialog(this, "CPF Inválido! ou não preenchido. Por favor, insira um CPF válido.");
+        javax.swing.JOptionPane.showMessageDialog(this, "CPF Inválido! ou não preenchido. Por favor, insira um CPF válido."); 
         return;
       }
+
+      
         
       
 
