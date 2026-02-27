@@ -1,4 +1,6 @@
-    public class TelaMotorista2 extends javax.swing.JFrame {
+import java.io.IOException;
+
+public class TelaMotorista2 extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaMotorista2.class.getName());
     
@@ -71,7 +73,14 @@
 
         CadastrarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CadastrarButton.setText("Cadastrar!");
-        CadastrarButton.addActionListener(this::CadastrarButtonActionPerformed);
+        CadastrarButton.addActionListener(e -> {
+			try {
+				CadastrarButtonActionPerformed(e);
+			} catch (IOException error) {
+				// TODO Auto-generated catch block
+				error.printStackTrace();
+			}
+		});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,7 +170,7 @@
         // TODO add your handling code here:
     }//GEN-LAST:event_MotoristaAtivoCheckboxActionPerformed
 
-    private void CadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarButtonActionPerformed
+    private void CadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_CadastrarButtonActionPerformed
         // 1. Coleta os dados da tela (baseado nos seus nomes de variáveis)
         String nome = NomeTextField.getText();
         String nomeSocial = NomeSocialTextField.getText();
@@ -173,12 +182,14 @@
 
         // 2. Cria o objeto Motorista
         // Lembre-se: a classe Motorista deve herdar de Pessoa e ser Serializable!
-        Motorista novoMotorista = new Motorista(nome, nomeSocial, cpf, dataNascimento, endereco, cnh, ativo);
+        Motorista novoMotorista = new Motorista(nome, nomeSocial, cpf, dataNascimento, endereco, cnh);
 
         // 3. Salva usando o seu Gerenciador de Dados
-        GerenciadorDados bancoDados = new GerenciadorDados();
-        bancoDados.cadastrar(novoMotorista);
-
+        // GerenciadorDados bancoDados = new GerenciadorDados();			apagar
+        //bancoDados.cadastrar(novoMotorista);								apagar
+        DadosMotorista.cadastrarMotorista(novoMotorista);
+        
+        
         // 4. Feedback e navegação
         javax.swing.JOptionPane.showMessageDialog(this, "Motorista cadastrado com sucesso!");
     

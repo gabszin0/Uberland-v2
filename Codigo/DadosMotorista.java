@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DadosMotorista {
@@ -5,9 +6,11 @@ public class DadosMotorista {
 	private static ArrayList<Motorista> vetMotorista = new ArrayList<Motorista>();
 	
 	
-	public static void cadastrarMotorista (Motorista m) {
-		if(m != null)
+	public static void cadastrarMotorista (Motorista m) throws IOException {
+		if(m != null) {
 			vetMotorista.add(m);
+			Persistencia.escreverArquivoBin("ArquivoBinMotorista.txt", vetMotorista);
+		}	
 	}
 	
 	public static void listarMotorista() {

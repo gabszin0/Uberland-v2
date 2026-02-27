@@ -8,12 +8,12 @@ public class Motorista extends Pessoa implements java.io.Serializable {
 	private boolean ativo;
 	private List<Veiculos> veiculos;
 	
-	public Motorista(String nome, String cpf, String datanasc, String end, String cnh, String nomesocial, boolean ativo) {
+	public Motorista(String nome, String cpf, String datanasc, String end, String cnh, String nomesocial) {
 		super (nome, cpf, datanasc);
 		setEnd(end);
 		setCnh (cnh);
 		setNomesocial(nomesocial);
-		this.ativo = ativo;
+		this.ativo = true;
 		veiculos = new ArrayList<>();
 	}
 	

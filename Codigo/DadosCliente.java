@@ -1,12 +1,15 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DadosCliente {
 	
 	private static ArrayList<Cliente> vetCliente = new ArrayList<Cliente>();
 	
-	public static void cadastrarCliente(Cliente c) {
-		if (c != null)
+	public static void cadastrarCliente(Cliente c) throws IOException {
+		if (c != null) {
 			vetCliente.add(c);
+			Persistencia.escreverArquivoBin("ÄrquivoBinCliente.txt", vetCliente);
+		}
 	}
 	
 	public static void listarCliente() {

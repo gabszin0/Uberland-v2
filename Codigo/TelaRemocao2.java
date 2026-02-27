@@ -108,8 +108,9 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 
     private void buscarCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCpfActionPerformed
         String cpf = inputTextCPF.getText().replaceAll("[^0-9]", ""); // Remove formatação do CPF
-        GerenciadorDados gerenciador = new GerenciadorDados();
-        Pessoa clienteEncontrado = gerenciador.buscarPorCpf(cpf);
+       Pessoa clienteEncontrado = DadosCliente.buscarCliente(cpf);
+        //GerenciadorDados gerenciador = new GerenciadorDados();
+        //Pessoa clienteEncontrado = gerenciador.buscarPorCpf(cpf);
 
 
         if (clienteEncontrado != null) {
@@ -128,7 +129,8 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         );
 
             if (resposta == javax.swing.JOptionPane.YES_OPTION) {
-                boolean removido = gerenciador.removerPorCpf(cpf);
+               // boolean removido = gerenciador.removerPorCpf(cpf);
+                boolean removido = DadosCliente.excluirCliente(cpf);
                 if (removido) {
                     javax.swing.JOptionPane.showMessageDialog(this, "Cliente removido com sucesso!");
                 } else {

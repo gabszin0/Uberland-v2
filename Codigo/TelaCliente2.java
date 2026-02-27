@@ -1,4 +1,6 @@
-    public class TelaCliente2 extends javax.swing.JFrame {
+import java.io.IOException;
+
+public class TelaCliente2 extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaCliente2.class.getName());
     
@@ -66,7 +68,14 @@
 
         FinalizarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         FinalizarButton.setText("Cadastrar!");
-        FinalizarButton.addActionListener(this::FinalizarButtonActionPerformed);
+        FinalizarButton.addActionListener(e -> {
+			try {
+				FinalizarButtonActionPerformed(e);
+			} catch (IOException error) {
+				// TODO Auto-generated catch block
+				error.printStackTrace();
+			}
+		});
 
         FormadepagamentoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Débito", "Credito", "Dinheiro", "Pix" }));
         FormadepagamentoCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -147,7 +156,7 @@
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void FinalizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarButtonActionPerformed
+    private void FinalizarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_FinalizarButtonActionPerformed
         // Coleta os dados da tela
         String nome = NomeTextField.getText();
         String cpf = CPFTextField.getText().replaceAll("[^0-9]", "");
@@ -157,15 +166,13 @@
         String pagamento = FormadepagamentoCombo.getSelectedItem().toString();
 
         // Cria o objeto 
-        Pessoa novoCliente = new Cliente(nome, cpf, nascimento, celular, email, pagamento.charAt(0));
+        Cliente novoCliente = new Cliente(nome, cpf, nascimento, celular, email, pagamento.charAt(0));
         
 
       if(novoCliente.getCpf() == null) {
-        javax.swing.JOptionPane.showMessageDialog(this, "CPF Inválido! ou não preenchido. Por favor, insira um CPF válido."); 
+        javax.swing.JOptionPane.showMessageDialog(this, "CPF Inválido! ou não preenchido. Por favor, insira um CPF válido.");
         return;
       }
-
-      
         
       
 
@@ -174,9 +181,10 @@
         
         
         // Salvando na persistencia
-        GerenciadorDados bancoDados = new GerenciadorDados(); 
-        bancoDados.cadastrar(novoCliente);
-    
+        //GerenciadorDados bancoDados = new GerenciadorDados(); 				apagar
+        //bancoDados.cadastrar(novoCliente);									apagar
+      	DadosCliente.cadastrarCliente(novoCliente);
+      
         // Feedback para o usuário
         javax.swing.JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso!");
     
