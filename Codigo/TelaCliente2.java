@@ -10,7 +10,6 @@ public class TelaCliente2 extends javax.swing.JFrame {
 
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         CadastroText = new javax.swing.JLabel();
@@ -30,30 +29,30 @@ public class TelaCliente2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        CadastroText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CadastroText.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         CadastroText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CadastroText.setLabelFor(this);
         CadastroText.setText("Cadastro do Cliente");
         CadastroText.setToolTipText("");
         CadastroText.setBorder(new javax.swing.border.MatteBorder(null));
 
-        NomeText.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        NomeText.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         NomeText.setText("Nome:");
 
-        CPFText.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        CPFText.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         CPFText.setText("CPF:");
 
-        DataNasciText.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        DataNasciText.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         DataNasciText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DataNasciText.setText("Data de Nascimento:");
 
-        EmailText.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        EmailText.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         EmailText.setText("E-mail:");
 
-        CelularText.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        CelularText.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         CelularText.setText("Celular:");
 
-        FormadepagamentoText.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        FormadepagamentoText.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         FormadepagamentoText.setText("Forma de Pagamento:");
 
         DataNasciTextField.setText("Insira aqui sua resposta...");
@@ -66,7 +65,7 @@ public class TelaCliente2 extends javax.swing.JFrame {
 
         EmailTextField.setText("Insira aqui sua resposta...");
 
-        FinalizarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        FinalizarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         FinalizarButton.setText("Cadastrar!");
         FinalizarButton.addActionListener(e -> {
 			try {
@@ -154,9 +153,9 @@ public class TelaCliente2 extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void FinalizarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_FinalizarButtonActionPerformed
+    private void FinalizarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         // Coleta os dados da tela
         String nome = NomeTextField.getText();
         String cpf = CPFTextField.getText().replaceAll("[^0-9]", "");
@@ -174,15 +173,6 @@ public class TelaCliente2 extends javax.swing.JFrame {
         return;
       }
         
-      
-
-
-
-        
-        
-        // Salvando na persistencia
-        //GerenciadorDados bancoDados = new GerenciadorDados(); 				apagar
-        //bancoDados.cadastrar(novoCliente);									apagar
       	DadosCliente.cadastrarCliente(novoCliente);
       
         // Feedback para o usuário
@@ -191,16 +181,13 @@ public class TelaCliente2 extends javax.swing.JFrame {
         // Voltar para o menu
         new TelaMenu().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_FinalizarButtonActionPerformed
+    }
 
-    private void FormadepagamentoComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormadepagamentoComboActionPerformed
+    private void FormadepagamentoComboActionPerformed(java.awt.event.ActionEvent evt) {
         
-    }//GEN-LAST:event_FormadepagamentoComboActionPerformed
+    }
 
-
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variáveis e componentes da interface gráfica
     private javax.swing.JLabel CPFText;
     private javax.swing.JFormattedTextField CPFTextField;
     private javax.swing.JLabel CadastroText;
@@ -215,5 +202,5 @@ public class TelaCliente2 extends javax.swing.JFrame {
     private javax.swing.JLabel FormadepagamentoText;
     private javax.swing.JLabel NomeText;
     private javax.swing.JFormattedTextField NomeTextField;
-    // End of variables declaration//GEN-END:variables
+   
 }

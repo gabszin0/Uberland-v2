@@ -9,7 +9,6 @@ public class TelaMotorista2 extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -30,30 +29,30 @@ public class TelaMotorista2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setLabelFor(this);
         jLabel1.setText("Cadastro do Motorista");
         jLabel1.setToolTipText("");
         jLabel1.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         jLabel2.setText("Nome:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         jLabel3.setText("CPF:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Data de Nascimento:");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         jLabel5.setText("CNH:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         jLabel6.setText("Endereço:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         jLabel7.setText("Nome Social:");
 
         DataNasciTextField.setText("Insira aqui sua resposta...");
@@ -71,7 +70,7 @@ public class TelaMotorista2 extends javax.swing.JFrame {
         MotoristaAtivoCheckbox.setText("Motorista Ativo?");
         MotoristaAtivoCheckbox.addActionListener(this::MotoristaAtivoCheckboxActionPerformed);
 
-        CadastrarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CadastrarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         CadastrarButton.setText("Cadastrar!");
         CadastrarButton.addActionListener(e -> {
 			try {
@@ -164,13 +163,13 @@ public class TelaMotorista2 extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void MotoristaAtivoCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MotoristaAtivoCheckboxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MotoristaAtivoCheckboxActionPerformed
+    private void MotoristaAtivoCheckboxActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
 
-    private void CadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_CadastrarButtonActionPerformed
+    private void CadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         // 1. Coleta os dados da tela (baseado nos seus nomes de variáveis)
         String nome = NomeTextField.getText();
         String nomeSocial = NomeSocialTextField.getText();
@@ -181,14 +180,9 @@ public class TelaMotorista2 extends javax.swing.JFrame {
         boolean ativo = MotoristaAtivoCheckbox.isSelected();
 
         // 2. Cria o objeto Motorista
-        // Lembre-se: a classe Motorista deve herdar de Pessoa e ser Serializable!
         Motorista novoMotorista = new Motorista(nome, nomeSocial, cpf, dataNascimento, endereco, cnh);
 
-        // 3. Salva usando o seu Gerenciador de Dados
-        // GerenciadorDados bancoDados = new GerenciadorDados();			apagar
-        //bancoDados.cadastrar(novoMotorista);								apagar
         DadosMotorista.cadastrarMotorista(novoMotorista);
-        
         
         // 4. Feedback e navegação
         javax.swing.JOptionPane.showMessageDialog(this, "Motorista cadastrado com sucesso!");
@@ -196,10 +190,10 @@ public class TelaMotorista2 extends javax.swing.JFrame {
         // Volta para o menu principal
         new TelaMenu().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_CadastrarButtonActionPerformed
+    }
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variáveis e componentes da interface gráfica
     private javax.swing.JFormattedTextField CNHTextField;
     private javax.swing.JFormattedTextField CPFTextField;
     private javax.swing.JButton CadastrarButton;
@@ -215,5 +209,5 @@ public class TelaMotorista2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    // End of variables declaration//GEN-END:variables
+    
 }

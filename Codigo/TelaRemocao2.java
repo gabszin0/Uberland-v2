@@ -18,11 +18,10 @@ public class TelaRemocao2 extends javax.swing.JFrame {
         inputTextCPF = new javax.swing.JFormattedTextField(); // Campo para CPF
         jButton1 = new javax.swing.JButton(); // Botão "Finalizar"
         btnBuscar = new javax.swing.JButton(); // Botão "Buscar"
-        //checkboxRemove = new javax.swing.JCheckBox(); // Checkbox para confirmar remoção
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        title.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        title.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setLabelFor(this);
         title.setText("Remover Cliente");
@@ -36,16 +35,16 @@ public class TelaRemocao2 extends javax.swing.JFrame {
         tagline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 12)); 
         jLabel2.setText("Digite o CPF:");
 
         inputTextCPF.setText(""); 
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         jButton1.setText("Voltar ao Menu");
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
-        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         btnBuscar.setText("Buscar!");
         btnBuscar.addActionListener(this::buscarCpfActionPerformed);
 
@@ -95,22 +94,20 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     //voltar pra tela de menu
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         TelaMenu telaMenu = new TelaMenu();
         telaMenu.setVisible(true);
         this.dispose(); // Fecha a janela atual
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }/
 
     
 
-    private void buscarCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCpfActionPerformed
+    private void buscarCpfActionPerformed(java.awt.event.ActionEvent evt) {
         String cpf = inputTextCPF.getText().replaceAll("[^0-9]", ""); // Remove formatação do CPF
        Pessoa clienteEncontrado = DadosCliente.buscarCliente(cpf);
-        //GerenciadorDados gerenciador = new GerenciadorDados();
-        //Pessoa clienteEncontrado = gerenciador.buscarPorCpf(cpf);
 
 
         if (clienteEncontrado != null) {
@@ -129,7 +126,6 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         );
 
             if (resposta == javax.swing.JOptionPane.YES_OPTION) {
-               // boolean removido = gerenciador.removerPorCpf(cpf);
                 boolean removido = DadosCliente.excluirCliente(cpf);
                 if (removido) {
                     javax.swing.JOptionPane.showMessageDialog(this, "Cliente removido com sucesso!");
@@ -146,17 +142,14 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     }
 
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variáveis e componentes da interface gráfica
     private javax.swing.JButton jButton1;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JCheckBox checkboxRemove;
     private javax.swing.JButton btnVoltarMenu; // dentro da janela de remover cliente(onde busca o cliente) o usuário pode votar pro menu
-    
-
     private javax.swing.JFormattedTextField inputTextCPF;
     private javax.swing.JLabel title;
     private javax.swing.JLabel tagline;
     private javax.swing.JLabel jLabel2;
-    // End of variables declaration//GEN-END:variables
+    
 }

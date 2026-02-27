@@ -21,38 +21,38 @@ public class TelaMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setLabelFor(this);
         jLabel1.setText("Menu de Opções");
         jLabel1.setToolTipText("");
         jLabel1.setBorder(new javax.swing.border.MatteBorder(null));
 
-        FinalizarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        FinalizarButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         FinalizarButton.setText("Finalizar!");
         FinalizarButton.addActionListener(this::FinalizarButtonActionPerformed);
 
-        ClienteButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ClienteButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         ClienteButton.setText("Cadastro Cliente");
         ClienteButton.addActionListener(this::ClienteButtonActionPerformed);
 
-        MotoristaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        MotoristaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         MotoristaButton.setText("Cadastro Motorista");
         MotoristaButton.addActionListener(this::MotoristaButtonActionPerformed);
 
-        CorridaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CorridaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         CorridaButton.setText("Iniciar Corrida");
         CorridaButton.addActionListener(this::CorridaButtonActionPerformed);
 
-        VeiculoButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        VeiculoButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         VeiculoButton.setText("Cadastro Veículo");
         VeiculoButton.addActionListener(this::VeiculoButtonActionPerformed);
 
-        BuscaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BuscaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); 
         BuscaButton.setText("Remover Cliente");
         BuscaButton.addActionListener(this::BuscaButtonActionPerformed);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoUberland.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoUberland.png"))); 
         jLabel2.setMaximumSize(new java.awt.Dimension(200, 200));
         jLabel2.setMinimumSize(new java.awt.Dimension(200, 200));
         jLabel2.setPreferredSize(new java.awt.Dimension(200, 200));
@@ -109,45 +109,45 @@ public class TelaMenu extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void FinalizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarButtonActionPerformed
+    private void FinalizarButtonActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
-    }//GEN-LAST:event_FinalizarButtonActionPerformed
+    }
 
-    private void ClienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteButtonActionPerformed
+    private void ClienteButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TelaCliente2 cliente = new TelaCliente2();
         cliente.setVisible(true);
         this.dispose(); // Fecha o menu
-    }//GEN-LAST:event_ClienteButtonActionPerformed
+    }
 
-    private void MotoristaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MotoristaButtonActionPerformed
+    private void MotoristaButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TelaMotorista2 motorista = new TelaMotorista2();
         motorista.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_MotoristaButtonActionPerformed
+    }
 
-    private void CorridaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorridaButtonActionPerformed
+    private void CorridaButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TelaCorrida2 corrida = new TelaCorrida2();
         corrida.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_CorridaButtonActionPerformed
+    }
 
-    private void VeiculoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VeiculoButtonActionPerformed
+    private void VeiculoButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TelaVeiculos2 veiculo = new TelaVeiculos2();
         veiculo.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_VeiculoButtonActionPerformed
+    }
 
-    private void BuscaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaButtonActionPerformed
+    private void BuscaButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TelaRemocao2 remocao = new TelaRemocao2();
         remocao.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_BuscaButtonActionPerformed
+    }
 
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variáveis e componentes da interface gráfica
     private javax.swing.JButton BuscaButton;
     private javax.swing.JButton ClienteButton;
     private javax.swing.JButton CorridaButton;
@@ -156,5 +156,4 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JButton VeiculoButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    // End of variables declaration//GEN-END:variables
 }
