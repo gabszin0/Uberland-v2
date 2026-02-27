@@ -101,7 +101,6 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         telaMenu.setVisible(true);
         this.dispose(); // Fecha a janela atual
     }
-
     
 
     private void buscarCpfActionPerformed(java.awt.event.ActionEvent evt) {

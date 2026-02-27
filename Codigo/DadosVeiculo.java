@@ -1,14 +1,27 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DadosVeiculo {
 	
 	private static ArrayList<Veiculos> vetVeiculo = new ArrayList<Veiculos>();
 	
+		
+	public static void cadastrarVeiculo(Veiculos v) { 
+    	try {
+        	if(v != null) {
+            	vetVeiculo.add(v);
+            	Persistencia.escreverArquivoBin("ArquivoBinVeiculo.txt", vetVeiculo);
+        	}
+    } 	catch (IOException e) {
+    		 System.out.println("Erro ao salvar: " + e.getMessage());
+    	}
+	}
+	
 	public static void cadastrarVeiculos(Veiculos v) {
 		if(v != null) 
 			vetVeiculo.add(v);
 	}
-	
+
 	public static void listarVeiculos() {
 		for(Veiculos v : vetVeiculo)
 			v.exibirDadosV();

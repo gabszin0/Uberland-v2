@@ -8,7 +8,7 @@ public class DadosCliente {
 	public static void cadastrarCliente(Cliente c) throws IOException {
 		if (c != null) {
 			vetCliente.add(c);
-			Persistencia.escreverArquivoBin("ÄrquivoBinCliente.txt", vetCliente);
+			Persistencia.escreverArquivoBin("ArquivoBinCliente.txt", vetCliente);
 		}
 	}
 	

@@ -227,9 +227,60 @@ public class TelaVeiculos2 extends javax.swing.JFrame {
         pack();
     }
 
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+    try {
+        // 1. Coleta inicial de dados
+        String placa = jFormattedTextField9.getText().trim();
+        String chassi = jFormattedTextField7.getText().trim();
+        int capacidade = Integer.parseInt(jFormattedTextField8.getText());
+        int ano = 2024; // Valor exemplo conforme regra > 2016 e < 2026
+
+        String categoria = (String) jComboBox1.getSelectedItem();
+        Veiculos v = null;
+
+        // 2. Instanciação baseada na categoria
+        if ("UberX".equals(categoria)) {
+            v = new UberX(placa, chassi, jFormattedTextField6.getText(), capacidade, ano, 
+                          jFormattedTextField10.getText(), jFormattedTextField11.getText(), 
+                          jCheckBox1.isSelected(), jCheckBox6.isSelected());
+        } else if ("Uber Comfort".equals(categoria)) {
+            v = new UberComfort(placa, chassi, jFormattedTextField6.getText(), capacidade, ano, 
+                                jFormattedTextField10.getText(), jFormattedTextField11.getText(), 
+                                jCheckBox3.isSelected(), jCheckBox7.isSelected(), jCheckBox5.isSelected());
+        } else if ("UberBlack".equals(categoria)) {
+            int malas = Integer.parseInt((String) jComboBox2.getSelectedItem());
+            v = new UberBlack(placa, chassi, jFormattedTextField6.getText(), capacidade, ano, 
+                              jFormattedTextField10.getText(), jFormattedTextField11.getText(), 
+                              jCheckBox2.isSelected(), jCheckBox4.isSelected(), malas);
+        }
+
+        // 3. Validação usando os Setters da classe Veiculos
+        if (v != null) {
+            StringBuilder erros = new StringBuilder();
+
+            if (v.getPlaca() == null) erros.append("- Placa inválida (deve ter 7 caracteres)\n");
+            if (v.getChassi() == null) erros.append("- Chassi inválido (deve ter 17 caracteres)\n");
+            if (v.getCapacidade() < 3) erros.append("- Capacidade deve ser no mínimo 3\n");
+            if (v.getAno() == 0) erros.append("- Ano deve ser entre 2017 e 2025\n");
+
+            if (erros.length() > 0) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Erro de validação:\n" + erros.toString());
+            } else {
+                DadosVeiculo.cadastrarVeiculo(v);
+                javax.swing.JOptionPane.showMessageDialog(this, "Veículo cadastrado com sucesso!");
+            }
+        }
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Erro: preencha os campos numéricos corretamente.");
     }
+
+    // Voltar para o menu
+        new TelaMenu().setVisible(true);
+        this.dispose();
+
+}    
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
