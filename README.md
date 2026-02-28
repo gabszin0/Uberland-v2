@@ -47,18 +47,3 @@ O projeto demonstra a aplicação prática dos quatro pilares de POO:
 | `Veiculos.java` | Base para as categorias UberX, Comfort e Black. |
 | `Corrida.java` | Motor do sistema que gerencia o fluxo (Solicitada -> Finalizada). |
 | `RegrasUberLand.java` | Central de inteligência para promoções VIP e taxas. |
-
-## ⚙️ Exemplo de Uso (Lógica Interna)
-
-// Instanciando um cliente e um veículo premium
-Cliente passageiro = new Cliente("João Silva", "12345678901");
-UberBlack carro = new UberBlack("ABC1234", "CHASSI123...", "Preto", 4, 2024, "Marca", "Modelo", true, true, 2);
-
-// Criando uma nova solicitação de corrida
-Corrida novaViagem = new Corrida(passageiro, carro, "Rua A", "Rua B", LocalDateTime.now(), "CARTAO");
-
-// Fluxo da viagem
-novaViagem.iniciarCorrida("10:00");
-novaViagem.finalizarCorrida(12.5, "10:25"); 
-
-System.out.println("Valor total: R$ " + novaViagem.getValorTotal());
